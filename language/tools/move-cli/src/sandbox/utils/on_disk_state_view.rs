@@ -287,7 +287,7 @@ impl OnDiskStateView {
     fn view_bytecode(path: &Path, is_module: bool) -> Result<Option<String>> {
         type Loc = u64;
         if path.is_dir() {
-            bail!("Bad bytecode path {:?}. Needed file, found directory")
+            bail!("Bad bytecode path {:?}. Needed file, found directory", path)
         }
 
         Ok(match Self::get_bytes(path)? {
